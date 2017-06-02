@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
 import requests.exceptions
+import random
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
 
 def scrape(u):
@@ -20,7 +21,7 @@ def scrape(u):
     culledList = []
 
     cnt = 0
-    
+
     for para in bigList:
         stop = False
         cnt += 1
@@ -50,4 +51,10 @@ def scrape(u):
     return culledList
 
 test = scrape('http://cambridgema.iqm2.com/Citizens/Detail_LegalNotice.aspx?ID=1008')
-print(test)
+randy = test[random.randint(0,len(test)-10)]
+preface = "Hi test monkey, here's a random meeting: "
+mess = preface+randy['date']+" "+randy['time']+" "+randy['agenda']
+print(mess)
+
+
+
