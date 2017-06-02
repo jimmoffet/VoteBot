@@ -13,9 +13,12 @@ lxml==3.7.3
 MarkupSafe==1.0
 numpy==1.12.1
 pandas==0.20.1
+PyJWT==1.5.0
+PySocks==1.6.7
 python-dateutil==2.6.0
 pytz==2017.2
 requests==2.17.3
 six==1.10.0
+twilio==6.3.0
 urllib3==1.21.1
 Werkzeug==0.12.2
