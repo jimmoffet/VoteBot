@@ -11,6 +11,7 @@ Jinja2==2.9.6
 jsonify==0.5
 lxml==3.7.3
 MarkupSafe==1.0
+newrelic==2.86.3.70
 numpy==1.12.1
 pandas==0.20.1
 PyJWT==1.5.0
