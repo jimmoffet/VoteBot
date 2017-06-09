@@ -26,15 +26,15 @@ def hello_monkey():
 	resp = MessagingResponse().message(mess)
 	return str(resp)
 
-def set_interval(func, sec):
-    def func_wrapper():
-        set_interval(func, sec)
-        print(func)
-    t = threading.Timer(sec, func_wrapper)
-    t.start()
-    return t
+# def set_interval(func, sec):
+#     def func_wrapper():
+#         set_interval(func, sec)
+#         print(func)
+#     t = threading.Timer(sec, func_wrapper)
+#     t.start()
+#     return t
 
-set_interval(ping('http://opendatabeta.herokuapp.com/'),180)
+# set_interval(ping('http://opendatabeta.herokuapp.com/'),180)
 
 if __name__ == "__main__":
 	app.run(debug=False)
