@@ -4,8 +4,12 @@ import requests.exceptions
 import random
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
 
-def scrape(u):
+def ping(u):
+    requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
+    page = requests.get(u)
+    return page
 
+def scrape(u):
     requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
     page = requests.get(u)
     soup = BeautifulSoup(page.content, 'html.parser', from_encoding='utf-8')
