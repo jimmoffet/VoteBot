@@ -29,7 +29,7 @@ def hello_monkey():
 def set_interval(func, sec):
     def func_wrapper():
         set_interval(func, sec)
-        #print(func)
+        print(func)
     t = threading.Timer(sec, func_wrapper)
     t.start()
     return t
