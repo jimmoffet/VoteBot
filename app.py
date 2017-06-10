@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    return "Hello World!"
+	return "Hello World!"
 
 @app.route("/api")
 def serve_schedule():
@@ -27,14 +27,14 @@ def hello_monkey2():
 	return str(resp)
 
 # This should live in a csv and be occasionally unloaded into logs
-callers2 = {
-    "+17733541500": "Jimbo",
-    "+16172837517": "Naseem",
-    "+16178524638": "Nadeem",
-    "+14349067428": "Papa Nic *shudder*",
-    "+17123105096": "Vidge Boy",
-    "+14145814507": "CarBar, JimJam loves you! Also"
-}
+# callers2 = {
+#     "+17733541500": "Jimbo",
+#     "+16172837517": "Naseem",
+#     "+16178524638": "Nadeem",
+#     "+14349067428": "Papa Nic *shudder*",
+#     "+17123105096": "Vidge Boy",
+#     "+14145814507": "CarBar, JimJam loves you! Also"
+# }
 
 @app.route("/monkey", methods=['GET', 'POST'])
 def hello_monkey():
@@ -69,23 +69,23 @@ def hello_monkey():
 	#         message = "Hi Beta Tester, I'm the City Council MeetingBot."
 
 	if 'next' in incoming:
-	        preface = "Sure thing! Here's the next meeting: "
-	        meeting = nextmtg['date']+" "+nextmtg['time']+" "+nextmtg['agenda']
-	        message = preface + meeting
+		preface = "Sure thing! Here's the next meeting: "
+		meeting = nextmtg['date']+" "+nextmtg['time']+" "+nextmtg['agenda']
+		message = preface + meeting
 	else:
-	    
-	    if from_number in people:
-	        message = "Hi " + people[from_number][1] + ", I'm the City Council MeetingBot. Is it creepy that I know who you are?"
-	    else:
-	        message = "Hi Beta Tester, I'm the City Council MeetingBot."
-	    
-		    # message = message + ' Your message was ' + '-' + incoming + '- '
-		    # test = scrape('http://cambridgema.iqm2.com/Citizens/Detail_LegalNotice.aspx?ID=1008')
-		    # randy = test[random.randint(0,len(test)-10)]
-		    # preface = "Here's a random upcoming meeting: "
-		    # message = message + preface + randy['date']+" "+randy['time']+" "+randy['agenda']
 
-		    message = message + ' ' + 'I only do one thing, but I do it well. For a weekly meeting reminder, say "weekly", for monthly, say "monthly" and to see only the very next meeting, say "next". You can say "stop" or "unsubscribe" at any time.'
+		if from_number in people:
+			message = "Hi " + people[from_number][1] + ", I'm the City Council MeetingBot. Is it creepy that I know who you are?"
+		else:
+			message = "Hi Beta Tester, I'm the City Council MeetingBot."
+
+			# message = message + ' Your message was ' + '-' + incoming + '- '
+			# test = scrape('http://cambridgema.iqm2.com/Citizens/Detail_LegalNotice.aspx?ID=1008')
+			# randy = test[random.randint(0,len(test)-10)]
+			# preface = "Here's a random upcoming meeting: "
+			# message = message + preface + randy['date']+" "+randy['time']+" "+randy['agenda']
+
+			message = message + ' ' + 'I only do one thing, but I do it well. For a weekly meeting reminder, say "weekly", for monthly, say "monthly" and to see only the very next meeting, say "next". You can say "stop" or "unsubscribe" at any time.'
 
 	resp = MessagingResponse()
 	resp.message(message)
@@ -95,5 +95,3 @@ def hello_monkey():
 
 if __name__ == "__main__":
 	app.run(debug=False)
-
-
