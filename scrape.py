@@ -92,23 +92,23 @@ def people():
 
 #sheet = pLayer()
 
-people = people()
-test = scrape('http://cambridgema.iqm2.com/Citizens/Detail_LegalNotice.aspx?ID=1008')
-nextmtg = test[0]
+# people = people()
+# test = scrape('http://cambridgema.iqm2.com/Citizens/Detail_LegalNotice.aspx?ID=1008')
+# nextmtg = test[0]
 
-incoming = 'some words'
-if 'next' in incoming:
-        preface = "Sure thing! Here's the next meeting: "
-        meeting = nextmtg['date']+" "+nextmtg['time']+" "+nextmtg['agenda']
-        message = preface + meeting
-else:
-    from_number = '+17733541500'
-    if from_number in people:
-        message = "Hi " + people[from_number][1] + ", I'm the City Council MeetingBot. Is it creepy that I know who you are?"
-    else:
-        message = "Hi Beta Tester, I'm the City Council MeetingBot."
+# incoming = 'some words'
+# if 'next' in incoming:
+#         preface = "Sure thing! Here's the next meeting: "
+#         meeting = nextmtg['date']+" "+nextmtg['time']+" "+nextmtg['agenda']
+#         message = preface + meeting
+# else:
+#     from_number = '+17733541500'
+#     if from_number in people:
+#         message = "Hi " + people[from_number][1] + ", I'm the City Council MeetingBot. Is it creepy that I know who you are?"
+#     else:
+#         message = "Hi Beta Tester, I'm the City Council MeetingBot."
 
-print(message)
+# print(message)
 
 #sheet.update_cell(row, 3, "I just wrote to a spreadsheet using Python!")
 
