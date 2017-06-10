@@ -22,17 +22,17 @@ def hello_monkey2():
 	test = scrape('http://cambridgema.iqm2.com/Citizens/Detail_LegalNotice.aspx?ID=1008')
 	randy = test[random.randint(0,len(test)-10)]
 	preface = "Hi Beta Tester, here's a random meeting: "
-	mess = preface+randy['date']+" "+randy['time']+" "+randy['agenda']
-	resp = MessagingResponse().message(mess)
+	message = preface+randy['date']+" "+randy['time']+" "+randy['agenda']
+	resp = MessagingResponse().message(message)
 	return str(resp)
 
-# Try adding your own number to this list!
+# This should live in a csv and be occasionally unloaded into logs
 callers = {
-    "+14158675309": "Curious George",
-    "+14158675310": "Boots",
-    "+14158675311": "Virgil",
     "+17733541500": "Jimbo",
     "+16172837517": "Naseem",
+    "+16178524638": "Nadeem",
+    "+14349067428": "Nick",
+    "+17123105096": "Vidge Boy",
 }
 
 @app.route("/monkey", methods=['GET', 'POST'])
@@ -41,13 +41,18 @@ def hello_monkey():
 
     from_number = request.values.get('From', None)
     if from_number in callers:
-        message = "Hi " + callers[from_number] + ", is it creepy that I know your name?"
+        message = "Hi " + callers[from_number] + ", I'm MeetingBot. Is it creepy that I know who you are?"
     else:
-        message = "Monkey, thanks for the message!"
+        message = "Hi Beta Tester, thanks for the message!"
 
     incoming = request.values.get('Body', None)
 
-    message = message + '. Your message was ' + '-' + incoming + '-'
+    message = message + ' Your message was ' + '-' + incoming + '-'
+
+    test = scrape('http://cambridgema.iqm2.com/Citizens/Detail_LegalNotice.aspx?ID=1008')
+	randy = test[random.randint(0,len(test)-10)]
+	preface = "Here's a random upcoming meeting: "
+	message = message + preface + randy['date']+" "+randy['time']+" "+randy['agenda']
 
     resp = MessagingResponse()
     resp.message(message)
