@@ -40,10 +40,12 @@ def hello_monkey2():
 def hello_monkey():
 	"""Respond and greet the caller by name."""
 
-	people = people()
+	
 	test = scrape('http://cambridgema.iqm2.com/Citizens/Detail_LegalNotice.aspx?ID=1008')
 	nextmtg = test[0]
 
+	peoples = people()
+	
 	#sheet = pLayer()
 
 	# this is a string
@@ -74,8 +76,8 @@ def hello_monkey():
 		message = preface + meeting
 	else:
 
-		if from_number in people:
-			message = "Hi " + people[from_number][1] + ", I'm the City Council MeetingBot. Is it creepy that I know who you are?"
+		if from_number in peoples:
+			message = "Hi " + peoples[from_number][1] + ", I'm the City Council MeetingBot. Is it creepy that I know who you are?"
 		else:
 			message = "Hi Beta Tester, I'm the City Council MeetingBot."
 
