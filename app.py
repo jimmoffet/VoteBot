@@ -46,18 +46,16 @@ def hello_monkey():
         message = "Hi Beta Tester, thanks for the message!"
 
     incoming = request.values.get('Body', None)
-
-	message = message + ' Your message was ' + '-' + incoming + '-'
-
-	test = scrape('http://cambridgema.iqm2.com/Citizens/Detail_LegalNotice.aspx?ID=1008')
-	randy = test[random.randint(0,len(test)-10)]
-	preface = "Here's a random upcoming meeting: "
-	message = message + preface + randy['date']+" "+randy['time']+" "+randy['agenda']
-
-	resp = MessagingResponse()
-	resp.message(message)
+    message = message + ' Your message was ' + '-' + incoming + '-'
+    test = scrape('http://cambridgema.iqm2.com/Citizens/Detail_LegalNotice.aspx?ID=1008')
+    randy = test[random.randint(0,len(test)-10)]
+    preface = "Here's a random upcoming meeting: "
+    message = message + preface + randy['date']+" "+randy['time']+" "+randy['agenda']
+    resp = MessagingResponse()
+    resp.message(message)
 
     return str(resp)
+
 
 if __name__ == "__main__":
 	app.run(debug=False)
