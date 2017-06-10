@@ -1,6 +1,6 @@
 from flask import Flask, request, redirect, jsonify
 from twilio.twiml.messaging_response import MessagingResponse
-from scrape import scrape, ping, pLayer
+from scrape import scrape, ping, people
 import random
 import threading
 
@@ -44,7 +44,7 @@ def hello_monkey():
 	test = scrape('http://cambridgema.iqm2.com/Citizens/Detail_LegalNotice.aspx?ID=1008')
 	nextmtg = test[0]
 
-	sheet = pLayer()
+	#sheet = pLayer()
 
 	# this is a string
 	incoming = request.values.get('Body', None)
