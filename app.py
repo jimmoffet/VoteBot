@@ -45,7 +45,7 @@ def hello_monkey():
     else:
         message = "Hi Beta Tester, thanks for the message!"
 
-	incoming = request.values.get('Body', None)
+    incoming = request.values.get('Body', None)
 
 	message = message + ' Your message was ' + '-' + incoming + '-'
 
