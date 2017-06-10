@@ -45,7 +45,7 @@ def hello_monkey():
 	nextmtg = test[0]
 
 	peoples = people()
-	
+
 	#sheet = pLayer()
 
 	# this is a string
@@ -70,6 +70,16 @@ def hello_monkey():
 	#     else:
 	#         message = "Hi Beta Tester, I'm the City Council MeetingBot."
 
+	incoming = incoming.lower()
+	if 'start' in incoming:
+		message = "Welcome back! MeetingBot here, you may remember me. If not, here's my deal. I only do one thing, but I do it well. For a weekly meeting reminder of City Council meetings say weekly, for monthly say monthly, and to see the very next meeting say next. You can say stop or unsubscribe at any time."
+
+	if 'weekly' in incoming:
+		message = "I'm on it. I'll send you a text once a week with details for the next two meetings. You can switch to monthly or stop getting alerts at any time, just say monthly or stop."
+
+	if 'monthly' in incoming:
+		message = "I'm on it. I'll send you a text the day before the first meeting of each month with details for all of that month's meetings. You can switch to weekly or stop getting alerts at any time, just say weekly or stop."
+
 	if 'next' in incoming:
 		preface = "Sure thing! Here's the next meeting: "
 		meeting = nextmtg['date']+" "+nextmtg['time']+" "+nextmtg['agenda']
@@ -87,7 +97,7 @@ def hello_monkey():
 			# preface = "Here's a random upcoming meeting: "
 			# message = message + preface + randy['date']+" "+randy['time']+" "+randy['agenda']
 
-			message = message + ' ' + 'I only do one thing, but I do it well. For a weekly meeting reminder, say "weekly", for monthly, say "monthly" and to see only the very next meeting, say "next". You can say "stop" or "unsubscribe" at any time.'
+		message = message + ' ' + 'I only do one thing, but I do it well. For a weekly meeting reminder, say "weekly", for monthly, say "monthly" and to see only the very next meeting, say "next". You can say "stop" or "unsubscribe" at any time.'
 
 	resp = MessagingResponse()
 	resp.message(message)
