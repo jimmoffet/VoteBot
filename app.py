@@ -15,8 +15,8 @@ def serve_schedule():
 	schedule = scrape('http://cambridgema.iqm2.com/Citizens/Detail_LegalNotice.aspx?ID=1008')
 	return jsonify(schedule)
 
-@app.route("/monkey", methods=['GET', 'POST'])
-def hello_monkey():
+@app.route("/monkey2", methods=['GET', 'POST'])
+def hello_monkey2():
 	"""Respond to incoming calls with a simple text message."""
 
 	test = scrape('http://cambridgema.iqm2.com/Citizens/Detail_LegalNotice.aspx?ID=1008')
@@ -26,15 +26,33 @@ def hello_monkey():
 	resp = MessagingResponse().message(mess)
 	return str(resp)
 
-# def set_interval(func, sec):
-#     def func_wrapper():
-#         set_interval(func, sec)
-#         print(func)
-#     t = threading.Timer(sec, func_wrapper)
-#     t.start()
-#     return t
+# Try adding your own number to this list!
+callers = {
+    "+14158675309": "Curious George",
+    "+14158675310": "Boots",
+    "+14158675311": "Virgil",
+    "+17733541500": "Jimbo",
+    "+16172837517": "Naseem",
+}
 
-# set_interval(ping('http://opendatabeta.herokuapp.com/'),180)
+@app.route("/monkey", methods=['GET', 'POST'])
+def hello_monkey():
+    """Respond and greet the caller by name."""
+
+    from_number = request.values.get('From', None)
+    if from_number in callers:
+        message = "Hi " + callers[from_number] + ", is it creepy that I know your name?"
+    else:
+        message = "Monkey, thanks for the message!"
+
+    incoming = request.values.get('Body', None)
+
+    message = message + '. Your message was ' + '-' + incoming + '-'
+
+    resp = MessagingResponse()
+    resp.message(message)
+
+    return str(resp)
 
 if __name__ == "__main__":
 	app.run(debug=False)
