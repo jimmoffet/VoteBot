@@ -58,17 +58,18 @@ def scrape(u):
     return culledList
 
 # get persistent layer as list of lists
-def pLayer():
-    # Find a workbook by name and open the first sheet
-    # Make sure you use the right name here.
-    sheet = client.open("OCPF_testdb").sheet1
-    # Extract and print all of the values
-    list_of_vals = sheet.get_all_values()
-    return list_of_vals
+# def pLayer():
+#     # Find a workbook by name and open the first sheet
+#     # Make sure you use the right name here.
+#     sheet = client.open("OCPF_testdb").sheet1
+#     # Extract and print all of the values
+#     list_of_vals = sheet.get_all_values()
+#     return list_of_vals
 
 
 def people():
-    sheetList = pLayer()
+    sheet = client.open("OCPF_testdb").sheet1
+    sheetList = sheet.get_all_values()
     rlen = len(sheetList)
     clen = len(sheetList[0])
     callers = {}
