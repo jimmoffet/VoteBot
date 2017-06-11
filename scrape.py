@@ -63,8 +63,8 @@ def pLayer():
     # Make sure you use the right name here.
     sheet = client.open("OCPF_testdb").sheet1
     # Extract and print all of the values
-    list_of_vals = sheet.get_all_values()
-    return list_of_vals
+    #list_of_vals = sheet.get_all_values()
+    return sheet
 
 
 def people():
@@ -90,7 +90,7 @@ def people():
 # print(mess)
 
 
-#sheet = pLayer()
+# sheet = pLayer()
 
 # people = people()
 # test = scrape('http://cambridgema.iqm2.com/Citizens/Detail_LegalNotice.aspx?ID=1008')
@@ -110,7 +110,7 @@ def people():
 
 # print(message)
 
-#sheet.update_cell(row, 3, "I just wrote to a spreadsheet using Python!")
+# sheet.update_cell(3, 4, "1")
 
 print('Done!')
 
