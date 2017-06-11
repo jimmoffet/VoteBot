@@ -92,7 +92,7 @@ def people():
 
 # sheet = pLayer()
 
-# people = people()
+peoples = people()
 # test = scrape('http://cambridgema.iqm2.com/Citizens/Detail_LegalNotice.aspx?ID=1008')
 # nextmtg = test[0]
 
@@ -110,8 +110,14 @@ def people():
 
 # print(message)
 
-# sheet.update_cell(3, 4, "1")
+from_number = '+17733541500'
+print(peoples[from_number][2])
+if peoples[from_number][2] == '1':
+    message = "Hey " + peoples[from_number][1] + '... Are you trying to chat me up? I told you that I only do meeting alerts :)'
+else:
+    message = "Hi " + peoples[from_number][1] + ", I'm the City Council MeetingBot. Is it creepy that I know who you are?"
 
+print(message)
 print('Done!')
 
 
