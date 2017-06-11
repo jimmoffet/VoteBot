@@ -81,12 +81,14 @@ def hello_monkey():
 				message = "Hey " + peoples[from_number][1] + '... Are you trying to chat me up? I told you that I only do meeting alerts :)'
 			else:
 				message = "Hi " + peoples[from_number][1] + ", I'm the City Council MeetingBot. Is it creepy that I know who you are?"
+				message = message + ' ' + 'I only do one thing, but I do it well. For a weekly reminder say "weekly", for monthly say "monthly" and to see only the very next meeting say "next". You can say "stop" or "unsubscribe" at any time.'
 				sheet.update_cell(cnt+1, 4, "1")
 		else:
 			message = "Hi Beta Tester, I'm the City Council MeetingBot."
+			message = message + ' ' + 'I only do one thing, but I do it well. For a weekly reminder say "weekly", for monthly say "monthly" and to see only the very next meeting say "next". You can say "stop" or "unsubscribe" at any time.'
 			# ADD NEW LINE TO SHEET
 
-		message = message + ' ' + 'I only do one thing, but I do it well. For a weekly reminder say "weekly", for monthly say "monthly" and to see only the very next meeting say "next". You can say "stop" or "unsubscribe" at any time.'
+		
 
 	resp = MessagingResponse()
 	resp.message(message)
