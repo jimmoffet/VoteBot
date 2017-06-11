@@ -71,7 +71,7 @@ def hello_monkey():
 	else:
 		if from_number in peoples:
 			# write a cheeky message here cause they're trying to chat you up (or we have them on a member list)
-			if peoples[from_number][3] == '1':
+			if peoples[from_number][2] == '1':
 				message = "Hey " + peoples[from_number][1] + '... Are you trying to chat me up? I told you that I only do meeting alerts :)'
 			else:
 				message = "Hi " + peoples[from_number][1] + ", I'm the City Council MeetingBot. Is it creepy that I know who you are?"
