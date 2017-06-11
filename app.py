@@ -53,6 +53,12 @@ def hello_monkey():
 	incoming = request.values.get('Body', None)
 	from_number = request.values.get('From', None)
 
+	cnt = 0
+	for key, val in peoples.items():
+		cnt += 1
+		if key == from_number:
+			break
+
 	incoming = incoming.lower()
 	if 'start' in incoming:
 		message = "Welcome back! MeetingBot here, you may remember me. If not, here's my deal. I only do one thing, but I do it well. For a weekly reminder of City Council meetings say weekly, for monthly say monthly, and to see the very next meeting say next. You can say stop or unsubscribe at any time."
@@ -75,15 +81,10 @@ def hello_monkey():
 				message = "Hey " + peoples[from_number][1] + '... Are you trying to chat me up? I told you that I only do meeting alerts :)'
 			else:
 				message = "Hi " + peoples[from_number][1] + ", I'm the City Council MeetingBot. Is it creepy that I know who you are?"
-				sheet.update_cell(3, 4, "1")
+				sheet.update_cell(cnt+1, 4, "1")
 		else:
 			message = "Hi Beta Tester, I'm the City Council MeetingBot."
-
-			# message = message + ' Your message was ' + '-' + incoming + '- '
-			# test = scrape('http://cambridgema.iqm2.com/Citizens/Detail_LegalNotice.aspx?ID=1008')
-			# randy = test[random.randint(0,len(test)-10)]
-			# preface = "Here's a random upcoming meeting: "
-			# message = message + preface + randy['date']+" "+randy['time']+" "+randy['agenda']
+			# ADD NEW LINE TO SHEET
 
 		message = message + ' ' + 'I only do one thing, but I do it well. For a weekly reminder say "weekly", for monthly say "monthly" and to see only the very next meeting say "next". You can say "stop" or "unsubscribe" at any time.'
 
