@@ -47,7 +47,7 @@ def hello_monkey():
 	peoples = people()
 	sheet = pLayer()
 
-	#sheet = pLayer()
+	# GET ROW NUMBER OF IDENTIFIED PERSON
 
 	# this is a string
 	incoming = request.values.get('Body', None)
@@ -75,7 +75,7 @@ def hello_monkey():
 				message = "Hey " + peoples[from_number][1] + '... Are you trying to chat me up? I told you that I only do meeting alerts :)'
 			else:
 				message = "Hi " + peoples[from_number][1] + ", I'm the City Council MeetingBot. Is it creepy that I know who you are?"
-				# write a 1 to the introduced column
+				sheet.update_cell(3, 4, "1")
 		else:
 			message = "Hi Beta Tester, I'm the City Council MeetingBot."
 
