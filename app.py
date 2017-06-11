@@ -55,7 +55,7 @@ def hello_monkey():
 
 	incoming = incoming.lower()
 	if 'start' in incoming:
-		message = "Welcome back! MeetingBot here, you may remember me. If not, here's my deal. I only do one thing, but I do it well. For a weekly meeting reminder of City Council meetings say weekly, for monthly say monthly, and to see the very next meeting say next. You can say stop or unsubscribe at any time."
+		message = "Welcome back! MeetingBot here, you may remember me. If not, here's my deal. I only do one thing, but I do it well. For a weekly reminder of City Council meetings say weekly, for monthly say monthly, and to see the very next meeting say next. You can say stop or unsubscribe at any time."
 
 	elif 'weekly' in incoming:
 		message = "I'm on it. I'll send you a text once a week with details for the next two meetings. You can switch to monthly or stop getting alerts at any time, just say monthly or stop."
@@ -71,7 +71,7 @@ def hello_monkey():
 	else:
 		if from_number in peoples:
 			# write a cheeky message here cause they're trying to chat you up (or we have them on a member list)
-			if peoples[from_number][4] == '1':
+			if peoples[from_number][3] == '1':
 				message = "Hey " + peoples[from_number][1] + '... Are you trying to chat me up? I told you that I only do meeting alerts :)'
 			else:
 				message = "Hi " + peoples[from_number][1] + ", I'm the City Council MeetingBot. Is it creepy that I know who you are?"
@@ -85,7 +85,7 @@ def hello_monkey():
 			# preface = "Here's a random upcoming meeting: "
 			# message = message + preface + randy['date']+" "+randy['time']+" "+randy['agenda']
 
-		message = message + ' ' + 'I only do one thing, but I do it well. For a weekly meeting reminder, say "weekly", for monthly, say "monthly" and to see only the very next meeting, say "next". You can say "stop" or "unsubscribe" at any time.'
+		message = message + ' ' + 'I only do one thing, but I do it well. For a weekly reminder say "weekly", for monthly say "monthly" and to see only the very next meeting say "next". You can say "stop" or "unsubscribe" at any time.'
 
 	resp = MessagingResponse()
 	resp.message(message)
