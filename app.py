@@ -8,6 +8,13 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
+	out = ''
+	try:
+		sheet = people()
+		out = ' Gspread connection was successful.'
+	except:
+		out = ' Gspread connection was not successful.'
+
 	return "Hello World!"
 
 @app.route("/api")
