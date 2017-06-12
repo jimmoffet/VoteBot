@@ -14,8 +14,8 @@ def hello():
 		out = ' Gspread connection was successful.'
 	except:
 		out = ' Gspread connection was not successful.'
-
-	return "Hello World!"
+	out = out + "Hello World!"
+	return out
 
 @app.route("/api")
 def serve_schedule():
