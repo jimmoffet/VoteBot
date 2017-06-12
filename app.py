@@ -14,7 +14,7 @@ def hello():
 		out = ' Gspread connection was successful.'
 	except:
 		out = ' Gspread connection was not successful.'
-	out = out + "Hello World!"
+	out = "Hello World!" + out
 	return out
 
 @app.route("/api")
@@ -32,16 +32,6 @@ def hello_monkey2():
 	message = preface+randy['date']+" "+randy['time']+" "+randy['agenda']
 	resp = MessagingResponse().message(message)
 	return str(resp)
-
-# This should live in a csv and be occasionally unloaded into logs
-# callers2 = {
-#     "+17733541500": "Jimbo",
-#     "+16172837517": "Naseem",
-#     "+16178524638": "Nadeem",
-#     "+14349067428": "Papa Nic *shudder*",
-#     "+17123105096": "Vidge Boy",
-#     "+14145814507": "CarBar, JimJam loves you! Also"
-# }
 
 @app.route("/monkey", methods=['GET', 'POST'])
 def hello_monkey():
