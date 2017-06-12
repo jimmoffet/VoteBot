@@ -109,8 +109,8 @@ peoples = people()
 #         message = "Hi Beta Tester, I'm the City Council MeetingBot."
 
 # print(message)
-
-from_number = '+17733541500'
+message = 'default message'
+from_number = '+17733544440'
 
 cnt = 0
 for key, val in peoples.items():
@@ -118,12 +118,14 @@ for key, val in peoples.items():
     if key == from_number:
         break
 print(cnt)
-print(peoples[from_number][2])
-if peoples[from_number][cnt] == '1':
-    message = "Hey " + peoples[from_number][1] + '... Are you trying to chat me up? I told you that I only do meeting alerts :)'
+#print(peoples[from_number][2])
+if from_number in peoples:
+    if peoples[from_number][cnt] == '1':
+        message = "Hey " + peoples[from_number][1] + '... Are you trying to chat me up? I told you that I only do meeting alerts :)'
+    else:
+        message = "Hi " + peoples[from_number][1] + ", I'm the City Council MeetingBot. Is it creepy that I know who you are?"
 else:
-    message = "Hi " + peoples[from_number][1] + ", I'm the City Council MeetingBot. Is it creepy that I know who you are?"
-
+    print(peoples)
 print(message)
 print('Done!')
 
