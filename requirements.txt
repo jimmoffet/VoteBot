@@ -19,7 +19,7 @@ oauth2client==4.1.1
 pandas==0.20.1
 pyasn1==0.2.3
 pyasn1-modules==0.0.9
-PyJWT==1.5.0
+PyJWT==2.4.0
 PySocks==1.6.7
 python-dateutil==2.6.0
 pytz==2017.2
